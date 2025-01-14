@@ -1,0 +1,31 @@
+{
+  "name": "koala-app",
+  "version": "1.0.0",
+  "description": "The skeleton application for Koala-Ts application",
+  "keywords": [
+    "Koalats",
+    "Framework"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsx watch src/index.ts",
+    "test": "vitest run --coverage",
+    "build": "tsc && tsc-alias",
+    "serve": "node dist/index.js"
+  },
+  "dependencies": {
+    "@koala-ts/framework": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "tsx": "^4.19.2",
+    "supertest": "^7.0.0",
+    "@types/supertest": "^6.0.2"
+  }
+}
