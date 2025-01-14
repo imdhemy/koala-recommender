@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
 
   mongod:
-    image: mongo:8
+    image: mongodb/mongodb-atlas-local:8
     container_name: koala_recommender_mongod
     ports:
       - '27017:27017'
@@ -28,7 +28,7 @@ services:
     volumes:
       - koala_mongo_data:/data/db
       - koala_mongo_config:/data/configdb
-    hostname: mongo
+    hostname: mongod
 
   dev:
     container_name: dfb_dev

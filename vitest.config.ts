@@ -2,7 +2,7 @@ import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
     test: {
-        setupFiles: ['./tests/setup.ts'],
+        globalSetup: ['./tests/setup.ts'],
         coverage: {
             exclude: [
                 ...configDefaults.exclude,
