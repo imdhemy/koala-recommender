@@ -1,0 +1,58 @@
+services:
+  app:
+    container_name: koala_recommender_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+      args:
+        - PORT=${PORT-3000}
+    user: node
+    tty: true
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - ${PORT-3000}:${PORT-3000}
+    networks:
+      - koala_network
+    restart: unless-stopped
+
+  mongod:
+    image: mongo:8
+    container_name: koala_recommender_mongod
+    ports:
+      - '27017:27017'
+    networks:
+      - koala_network
+    volumes:
+      - koala_mongo_data:/data/db
+      - koala_mongo_config:/data/configdb
+    hostname: mongo
+
+  dev:
+    container_name: dfb_dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+      args:
+        - PORT=${PORT-3000}
+    user: node
+    tty: true
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    networks:
+      - koala_network
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  koala_network:
+    driver: bridge
+
+volumes:
+  koala_mongo_data:
+  koala_mongo_config:
