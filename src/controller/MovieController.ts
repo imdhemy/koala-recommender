@@ -1,5 +1,6 @@
 import { type IScope, Route } from '@koala-ts/framework';
 import { createMovie, IMovieProps } from '../application/movie';
+import { recommendMovie } from '../application/movie/recommend-movie';
 
 export class MovieController {
     @Route({ method: 'POST', path: '/movies' })
@@ -7,5 +8,10 @@ export class MovieController {
         scope.response.status = 201;
 
         scope.response.body = await createMovie(scope.request.body as IMovieProps);
+    }
+
+    @Route({ method: 'POST', path: '/movies:recommend' })
+    async recommend(scope: IScope) {
+        scope.response.body = await recommendMovie(scope.request.body as IMovieProps);
     }
 }

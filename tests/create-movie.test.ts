@@ -1,21 +1,13 @@
-import { afterAll, beforeAll, beforeEach, describe, expect, test } from 'vitest';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { ITestAgent, testAgent } from '@koala-ts/framework';
 import { appConfig } from '../src/config/app';
-import { client, connectToDb, db } from '../src/infrastructure/database';
+import { db } from '../src/infrastructure/database';
 
 describe('Create movie', () => {
     let agent: ITestAgent;
 
-    beforeAll(async function () {
-        await connectToDb();
-    });
-
     beforeEach(async function () {
         agent = testAgent(appConfig);
-    });
-
-    afterAll(async function () {
-        await client.close();
     });
 
     test('it should create a movie', async () => {

@@ -1,5 +1,5 @@
 import { loadEnvConfig } from '@koala-ts/framework';
-import { client, connectToDb } from '../src/infrastructure/database';
+import { client, connectToDb } from '../../src/infrastructure/database';
 
 async function setup() {
     loadEnvConfig('test');
