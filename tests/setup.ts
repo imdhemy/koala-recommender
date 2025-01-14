@@ -7,6 +7,7 @@ async function setup() {
 }
 
 async function teardown() {
+    await client.db(process.env.MONGODB_DB).dropDatabase();
     await client.close();
 }
 
