@@ -5,9 +5,8 @@ import { recommendMovie } from '../application/movie/recommend-movie';
 export class MovieController {
     @Route({ method: 'POST', path: '/movies' })
     async store(scope: IScope) {
-        scope.response.status = 201;
-
         scope.response.body = await createMovie(scope.request.body as IMovieProps);
+        scope.response.status = 201;
     }
 
     @Route({ method: 'POST', path: '/movies:recommend' })
