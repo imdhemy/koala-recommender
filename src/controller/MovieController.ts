@@ -1,6 +1,5 @@
 import { type IScope, Route } from '@koala-ts/framework';
-import { createMovie, IMovieProps } from '../application/movie';
-import { recommendMovie } from '../application/movie/recommend-movie';
+import { createMovie, IMovieProps, recommendMovie } from '../application/movie';
 
 export class MovieController {
     @Route({ method: 'POST', path: '/movies' })
