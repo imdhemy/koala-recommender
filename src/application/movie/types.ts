@@ -1,14 +1,14 @@
-export interface IMovieProps {
+interface CommonMovieProps {
     title: string;
     genre: string[];
     plot: string;
+}
+
+export interface IMovieProps extends CommonMovieProps {
     releaseDate: string;
 }
 
 export interface IMovie {
     id: string;
-    title: string;
-    genre: string[];
-    plot: string;
     releaseDate: Date;
 }
