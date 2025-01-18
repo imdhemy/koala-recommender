@@ -7,7 +7,7 @@
     "moduleDetection": "force",
     "isolatedModules": true,
     "module": "Preserve",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
@@ -25,7 +25,9 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "vitest.config.ts",
+    "tests"
   ],
   "tsc-alias": {
     "resolveFullPaths": true,
